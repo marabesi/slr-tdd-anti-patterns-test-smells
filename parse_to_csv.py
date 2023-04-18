@@ -11,7 +11,7 @@ for file in files:
         parsed = json.load(jsonFile)
         list_of_files.append(parsed)
 
-data_file = open('result.csv', 'w')
+data_file = open('parsed-google-scholar-to-csv.csv', 'w')
 csv_writer = csv.writer(data_file)
 
 count = 0
