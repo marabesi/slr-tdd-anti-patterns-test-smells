@@ -10,6 +10,7 @@ packages = [{include = "slr_tdd_anti_patterns"}]
 python = "^3.11"
 scholarly = "^1.7.11"
 python-slugify = "^8.0.1"
+pandas = "^2.0.0"
 
 
 [build-system]
