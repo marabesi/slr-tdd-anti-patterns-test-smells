@@ -3,3 +3,4 @@ results/
 .env
 *.log
 core/
+.~lock.*
