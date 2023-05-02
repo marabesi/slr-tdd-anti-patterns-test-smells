@@ -24,10 +24,13 @@ total = 0
 for data in list_of_files:
     df = pd.json_normalize(data, sep='_')
     row = df.to_dict(orient='records')[0]
+    row['id'] = total
+
     if count == 0:
         header = row.keys()
         csv_writer.writerow(header)
         count += 1
+
     csv_writer.writerow(row.values())
     total += 1
  
