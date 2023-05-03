@@ -3,9 +3,10 @@ import csv
 
 file_list = []
 
-def build_record(title, authors, year, source, doi, url_for_publication):
+def build_record(title, abstract, authors, year, source, doi, url_for_publication):
     return {
         'title': title,
+        'abstract': abstract,
         'authors': authors,
         'year': year,
         'source': source,
@@ -19,6 +20,7 @@ with open("database/scholar.csv", mode="r") as csv_file:
         file_list.append(
             build_record(
                 row['bib_title'],
+                row['bib_abstract'],
                 row['bib_author'],
                 row['bib_pub_year'],
                 row['bib_venue'],
@@ -33,6 +35,7 @@ with open("database/scopus.csv", mode="r") as csv_file:
         file_list.append(
             build_record(
                 row['Title'],
+                row['Abstract'],
                 row['\ufeffAuthors'],
                 row['Year'],
                 row['Source'],
@@ -47,6 +50,7 @@ with open("database/wos.csv", mode="r") as csv_file:
         file_list.append(
             build_record(
                 row['Article Title'],
+                row['Abstract'],
                 row['Author Full Names'],
                 row['Publication Year'],
                 row['Source Title'],
