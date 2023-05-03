@@ -24,7 +24,7 @@ with open("database/scholar.csv", mode="r") as csv_file:
                 row['bib_author'],
                 row['bib_pub_year'],
                 row['bib_venue'],
-                row['eprint_url'],
+                "preprint scholar - " + row['eprint_url'],
                 row['pub_url'],
             )
         )
@@ -74,4 +74,4 @@ for data in file_list:
 
 data_file.close()
 
-print("{} articles merged".format(len(filename)))
+print("{} articles merged".format(len(file_list)))
