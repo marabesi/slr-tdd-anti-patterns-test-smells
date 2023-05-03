@@ -37,6 +37,7 @@ total = 1
 for file in files:
     with open("./{}/{}".format(file_path,file), "r") as jsonFile:
         base = dict({ 'id': total })
+        # https://favtutor.com/blogs/merge-dictionaries-python
         parsed = default_schema | base | json.load(jsonFile)
         list_of_files.append(parsed)
         total += 1
