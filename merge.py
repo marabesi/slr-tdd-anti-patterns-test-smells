@@ -2,8 +2,10 @@ import csv
 
 
 file_list = []
+id = 1
 
 def build_record(
+    id,
     title,
     abstract,
     authors,
@@ -14,6 +16,7 @@ def build_record(
     database
 ):
     return {
+        'id': id,
         'title': title,
         'abstract': abstract,
         'authors': authors,
@@ -29,6 +32,7 @@ with open("database/scholar.csv", mode="r") as csv_file:
     for row in csv_reader:
         file_list.append(
             build_record(
+                id,
                 row['bib_title'],
                 row['bib_abstract'],
                 row['bib_author'],
@@ -39,12 +43,14 @@ with open("database/scholar.csv", mode="r") as csv_file:
                 "Google Scholar"
             )
         )
+        id = id + 1
 
 with open("database/scopus.csv", mode="r") as csv_file:
     csv_reader = csv.DictReader(csv_file)
     for row in csv_reader:
         file_list.append(
             build_record(
+                id,
                 row['Title'],
                 row['Abstract'],
                 row['\ufeff"Authors"'],
@@ -55,12 +61,14 @@ with open("database/scopus.csv", mode="r") as csv_file:
                 "Scopus"
             )
         )
+        id = id + 1
 
 with open("database/wos.csv", mode="r") as csv_file:
     csv_reader = csv.DictReader(csv_file, delimiter=';')
     for row in csv_reader:
         file_list.append(
             build_record(
+                id,
                 row['Article Title'],
                 row['Abstract'],
                 row['Author Full Names'],
@@ -71,6 +79,8 @@ with open("database/wos.csv", mode="r") as csv_file:
                 "Web of Science"
             )
         )
+        id = id + 1
+
 
 filename = "database/merged.csv"
 data_file = open('{}'.format(filename), 'w')
