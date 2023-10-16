@@ -3,7 +3,16 @@ import csv
 
 file_list = []
 
-def build_record(title, abstract, authors, year, source, doi, url_for_publication):
+def build_record(
+    title,
+    abstract,
+    authors,
+    year,
+    source,
+    doi,
+    url_for_publication,
+    database
+):
     return {
         'title': title,
         'abstract': abstract,
@@ -11,6 +20,7 @@ def build_record(title, abstract, authors, year, source, doi, url_for_publicatio
         'year': year,
         'source': source,
         'doi': doi,
+        'database': database,
         'url_of_publication': url_for_publication
     }
 
@@ -26,6 +36,7 @@ with open("database/scholar.csv", mode="r") as csv_file:
                 row['bib_venue'],
                 "preprint scholar - " + row['eprint_url'],
                 row['pub_url'],
+                "Google Scholar"
             )
         )
 
@@ -36,16 +47,17 @@ with open("database/scopus.csv", mode="r") as csv_file:
             build_record(
                 row['Title'],
                 row['Abstract'],
-                row['\ufeffAuthors'],
+                row['\ufeff"Authors"'],
                 row['Year'],
                 row['Source'],
                 row['DOI'],
                 row['Link'],
+                "Scopus"
             )
         )
 
 with open("database/wos.csv", mode="r") as csv_file:
-    csv_reader = csv.DictReader(csv_file)
+    csv_reader = csv.DictReader(csv_file, delimiter=';')
     for row in csv_reader:
         file_list.append(
             build_record(
@@ -56,6 +68,7 @@ with open("database/wos.csv", mode="r") as csv_file:
                 row['Source Title'],
                 row['DOI'],
                 "https://doi.org/" + row['DOI'],
+                "Web of Science"
             )
         )
 
