@@ -1,0 +1,7 @@
+- Scopus
+
+TITLE-ABS-KEY ( ( tdd OR "unit test*" OR "test-driven development" OR "test driven development" ) AND ( "anti-pattern*" OR "anti pattern*" OR antipattern* OR pattern* OR "test smells" ) ) AND ( LIMIT-TO ( SUBJAREA , "COMP" ) OR LIMIT-TO ( SUBJAREA , "ENGI" ) )
+
+- WoS
+
+TS=( ( tdd OR "unit test*" OR "test-driven development" OR "test driven development" ) AND ( "anti-pattern*" OR "anti pattern*" OR antipattern* OR pattern* OR "test smell*" ) ) and WC=(("Computer Science" OR "Software Engineering" or "Computer Science Theory Methods" or "Computer Science Information Systems" or "Telecommunications" or "Engineering Electrical Electronic" or "Computer Science Artificial Intelligence" or "Computer Science Interdisciplinary Applications" or "Computer Science Hardware Architecture (Web of Science Categories)" and "Engineering Electrical Electronic" or "Computer Science Software Engineering" or "Computer Science Theory Methods" or "Computer Science Information Systems" or "Computer Science Interdisciplinary Applications" or "Computer Science Artificial Intelligence" or "Computer Science Hardware Architecture (Web of Science Categories)"))
